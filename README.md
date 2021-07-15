@@ -1,38 +1,13 @@
-# Temporal Attentive Alignment for Video Domain Adaptation
+# Uncertainty-Aware Domain Adaptation for Action Recognition
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/temporal-attentive-alignment-for-large-scale/domain-adaptation-on-hmdb-ucf-full)](https://paperswithcode.com/sota/domain-adaptation-on-hmdb-ucf-full?p=temporal-attentive-alignment-for-large-scale)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/temporal-attentive-alignment-for-large-scale/domain-adaptation-on-ucf-hmdb-full)](https://paperswithcode.com/sota/domain-adaptation-on-ucf-hmdb-full?p=temporal-attentive-alignment-for-large-scale)
-
----
-[<img align="right" src="webpage/OLIVES_new.png" width="15%">](https://ghassanalregib.info/)
-This work was mainly done in the [**Omni Lab for Intelligent Visual Engineering and Science (OLIVES)**](https://ghassanalregib.info/) @ Georgia Tech. <br>
-Feel free to check our lab's [**Website**](https://ghassanalregib.info/) and [**GitHub**](https://github.com/olivesgatech) for other interesting work!!!
 
 ---
 This is the official PyTorch implementation of our papers:
 
-**Temporal Attentive Alignment for Large-Scale Video Domain Adaptation**  
-[__***Min-Hung Chen***__](https://www.linkedin.com/in/chensteven), [Zsolt Kira](https://www.cc.gatech.edu/~zk15/), [Ghassan AlRegib (Advisor)](https://ghassanalregib.info/), [Jaekwon Yoo](https://www.linkedin.com/in/jaekwon-yoo-8685862b/), [Ruxin Chen](https://www.linkedin.com/in/ruxin-chen-991477119/), [Jian Zheng](https://www.linkedin.com/in/jian-zheng/)  
-[*International Conference on Computer Vision (ICCV), 2019*](http://iccv2019.thecvf.com/) **[Oral (acceptance rate: 4.6%)]**  
-[[arXiv](https://arxiv.org/abs/1907.12743)][[Project](https://minhungchen.netlify.app/project/cdar/)][[Blog](https://mlatgt.blog/2019/09/10/overcoming-large-scale-annotation-requirements-for-understanding-videos-in-the-wild/)][[Presentation (officially recorded)](https://conftube.com/video/8oUPyhwzIDo?tocitem=146)][[Oral](https://youtu.be/j9cDuzmpYP8)][[Poster](webpage/ICCV2019_Steve_TA3N_poster_v1_2.pdf)][[Slides](https://www.dropbox.com/s/s9ud77a1zt0vqbn/Oral_TA3N_ICCV_2019_mute.pdf?dl=0)][[Open Access](http://openaccess.thecvf.com/content_ICCV_2019/html/Chen_Temporal_Attentive_Alignment_for_Large-Scale_Video_Domain_Adaptation_ICCV_2019_paper.html)][[IEEE Xplore](https://ieeexplore.ieee.org/document/9008391)]
+**Uncertainty-Aware Domain Adaptation for Action Recognition**  
 
-**Temporal Attentive Alignment for Video Domain Adaptation**  
-[__***Min-Hung Chen***__](https://www.linkedin.com/in/chensteven), [Zsolt Kira](https://www.cc.gatech.edu/~zk15/), [Ghassan AlRegib (Advisor)](https://ghassanalregib.info/)  
-[*CVPR Workshop (Learning from Unlabeled Videos), 2019*](https://sites.google.com/view/luv2019)  
-[[arXiv](https://arxiv.org/abs/1905.10861)]
 
-<p align="center">
-<img src="webpage/Overview.png?raw=true" width="60%">
-</p>
-
-Although various image-based domain adaptation (DA) techniques have been proposed in recent years, domain shift in videos is still not well-explored. Most previous
-works only evaluate performance on small-scale datasets which are saturated. Therefore, we first propose two largescale video DA datasets with much larger domain discrepancy: **UCF-HMDB<sub>full</sub>** and **Kinetics-Gameplay**. Second, we investigate different DA integration methods for videos, and show that simultaneously aligning and learning temporal dynamics achieves effective alignment even without sophisticated DA methods. Finally, we propose **Temporal Attentive Adversarial Adaptation Network (TA<sup>3</sup>N)**, which explicitly attends to the temporal dynamics using domain
-discrepancy for more effective domain alignment, achieving state-of-the-art performance on four video DA datasets.
-
-<p align="center">
-<img src="webpage/SOTA_small.png?raw=true" width="49%">
-<img src="webpage/SOTA_large.png?raw=true" width="50%">
-</p>
+Domain Adaptation (DA) has been a crucial topic for action recognition, as the test set and training set are not always subject to the identical distribution, which will lead to significant performance degradation. Existing researches focus on DA methods based on the entire videos, ignoring the different contributions of different samples and regions. In this paper, we propose an uncertainty-aware domain adaptation method for action recognition from a new perspective. The aleatoric uncertainty is firstly used in the classifier to improve the performance by alleviating the impact of noisy labels. Then the aleatoric uncertainty calculated with Bayesian Neural Network is embedded in the discriminator to help the network focus on the spatial areas and temporal clips with lower uncertainty during training. The spatial-temporal attention map is generated to enhance the features with the guidance of backward passing. Extensive experiments are conducted on both small-scale and large-scale datasets, including **UCF-HMDB<sub>full</sub>** and **Kinetics-Gameplay**, and the results indicated that the proposed method achieves competitive performance with fewer computational workloads.
 
 ---
 ## Contents
@@ -163,40 +138,3 @@ The options in the scripts have comments with the following types:
 * no comment: user can still change it, but NOT recommend (may need to change the code or have different experimental results)
 * comments with choices (e.g. `true | false`): can only choose from choices
 * comments as `depend on users`: totally depend on users (mostly related to data path)
-
----
-## Citation
-If you find this repository useful, please cite our papers:
-```
-@inproceedings{chen2019temporal,
-  title={Temporal attentive alignment for large-scale video domain adaptation},
-  author={Chen, Min-Hung and Kira, Zsolt and AlRegib, Ghassan and Woo, Jaekwon and Chen, Ruxin and Zheng, Jian},
-  booktitle={IEEE International Conference on Computer Vision (ICCV)},
-  year={2019},
-  url={https://arxiv.org/abs/1907.12743}
-}
-
-@article{chen2019taaan,
-  title={Temporal Attentive Alignment for Video Domain Adaptation},
-  author={Chen, Min-Hung and Kira, Zsolt and AlRegib, Ghassan},
-  journal={CVPR Workshop on Learning from Unlabeled Videos},
-  year={2019},
-  url={https://arxiv.org/abs/1905.10861}
-}
-```
-
----
-### Acknowledgments
-This work was mainly done in [OLIVES](https://ghassanalregib.info/)@GT with the guidance of Prof. [Ghassan AlRegib](https://ghassanalregib.info/), and the collaboration with Prof. [Zsolt Kira](https://www.cc.gatech.edu/~zk15/) at Georgia Tech. Part of this work was done with the collaboration with [Jaekwon Yoo](https://www.linkedin.com/in/jaekwon-yoo-8685862b/), [Ruxin Chen](https://www.linkedin.com/in/ruxin-chen-991477119/) and [Jian Zheng](https://www.linkedin.com/in/jian-zheng/).
-<!-- in [Sony Interactive Entertainment (SIE)](https://www.sie.com/en/index.html)  -->
-
-Some codes are borrowed from [TSN](https://github.com/yjxiong/temporal-segment-networks), [pytorch-tsn](https://github.com/yjxiong/tsn-pytorch), [TRN-pytorch](https://github.com/metalbubble/TRN-pytorch), and [Xlearn](https://github.com/thuml/Xlearn/tree/master/pytorch).
-
-Special thanks to the development team for the product used in the Kinetics-Gameplay dataset: <br>
-**Detroit: Become Human™ ©Sony Interactive Entertainment Europe, developed by Quantic Dream**
-
----
-### Contact
-[Min-Hung Chen](https://www.linkedin.com/in/chensteven) <br>
-cmhungsteve AT gatech DOT edu <br>
-[<img align="left" src="webpage/OLIVES_new.png" width="15%">](https://ghassanalregib.info/)
