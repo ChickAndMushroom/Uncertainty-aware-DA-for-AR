@@ -8,6 +8,7 @@ This is the official PyTorch implementation of our papers:
 
 ABSTRACT
 ---
+Domain Adaptation (DA) has been a crucial topic for action recognition, as the test set and training set are not always subject to the identical distribution, which will lead to significant performance degradation. Existing researches focus on DA methods based on the entire videos, ignoring the different contributions of different samples and regions. In this paper, we propose an uncertainty-aware domain adaptation method for action recognition from a new perspective. The aleatoric uncertainty is firstly used in the classifier to improve the performance by alleviating the impact of noisy labels. Then the aleatoric uncertainty calculated with Bayesian Neural Network is embedded in the discriminator to help the network focus on the spatial areas and temporal clips with lower uncertainty during training. The spatial-temporal attention map is generated to enhance the features with the guidance of backward passing. Extensive experiments are conducted on both small-scale and large-scale datasets, and the results indicate that the proposed method achieves competitive performance with fewer computational workloads.
 ## Contents
 * [Requirements](#requirements)
 * [Dataset Preparation](#dataset-preparation)
